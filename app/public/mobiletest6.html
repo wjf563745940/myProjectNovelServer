@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>固定宽 用px</title>
+<!-- <meta name="viewport" content="width=640"> -->
+<!-- <meta name=viewport content="width=640,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0"> -->
+<!-- <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"> -->
+<!-- <meta name="viewport" content="width=640,initial-scale=1,user-scalable=0"> -->
+ <!--  <meta name="viewport" content="width=640,initial-scale=1,maximum-scale=2,minimum-scale=0.5,user-scalable=no"> -->
+ <!-- <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=2,minimum-scale=0.5"> -->
+<meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+  <script>
+
+!function(n, e) {
+    var t = n.documentElement,
+        i = "orientationchange" in window ? "orientationchange" : "resize",
+        d = function() {
+      	 document.querySelector("html").setAttribute("data-dpr",window.devicePixelRatio)	;
+            var n = t.clientWidth;//dip
+            var uiWidth=640;
+            var scal=n/uiWidth;
+            if (n) {
+                var e = n;
+                if(n>640 || n==640){
+					t.style.fontSize = '100px';
+					}else{
+					t.style.fontSize = 100 * (n / 640) + 'px';
+					}
+                var htmlWidth=document.documentElement.offsetWidth;
+				var allrem=1;
+                document.getElementById("remw").innerHTML="width="+allrem+"rem (html font-size "+t.style.fontSize+"  htmlWidth "+htmlWidth+"   )";
+				document.getElementById("remw").style.width=allrem+"rem";
+            }
+        };
+    n.addEventListener && (e.addEventListener(i, d, !1), n.addEventListener("DOMContentLoaded", d, !1))
+}(document, window); 
+</script>
+</head>
+<body style="background:#efefef;">
+	
+	<div class="rem">
+	
+	<div id="remw"></div>
+	<div style="width:6.4rem;background:#aaa;">6.4rem</div>
+	<p class="dpr">dpr font-size 12 24 36?</p>
+	</div>
+	
+</body>
+
+<style type="text/css" media="screen">
+html{
+
+}
+	html,body,div{
+		padding: 0;
+		margin:0;
+	}
+	div{
+		margin-bottom: 10px;
+	}
+.dpr
+  font-size:12px;
+}
+[data-dpr="2"] .dpr{
+  font-size: 24px;
+}
+[data-dpr="3"] .dpr{
+  font-size: 36px;
+}
+	.rem{
+	
+		background: #eee;
+		height: 1rem;
+		margin: 0 auto;
+		font-size: 12px;
+	}
+</style>
+</html>

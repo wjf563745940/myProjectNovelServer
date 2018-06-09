@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<!-- <meta name="viewport" content="width=640"> -->
+<!-- <meta name=viewport content="width=640,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0"> -->
+<!-- <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"> -->
+<!-- <meta name="viewport" content="width=640,initial-scale=1,user-scalable=0"> -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body style="background:#efefef;">
+	<div class="flex fix-height100" >
+		<div>
+			flex1
+		</div>
+			<div>
+			flex2
+			</div>
+			<div>
+			flex3
+			</div>
+			<div>
+				flex4
+			</div>
+	</div>
+	<div class="baifen">
+		<div>
+			%0~25
+		</div>
+			<div>
+				%26~50
+			</div>
+			<div>
+				%51~75
+			</div>
+			<div>
+					%76~100
+			</div>
+		
+	</div>
+	<div class="fix-width200">固定框 200px</div>
+	
+</body>
+<script>
+
+</script>
+<style type="text/css" media="screen">
+html{
+
+}
+	html,body,div{
+		padding: 0;
+		margin:0;
+	}
+	div{
+		margin-bottom: 10px;
+	}
+	.flex{
+		display: flex;
+
+	}
+		.baifen {
+			font-size: 0;
+			-webkit-text-size-adjust:none;
+		}
+	.baifen >div{
+		width: 25%;
+		display: inline-block;
+		font-size: 12px;
+	}
+	.fix-height100{
+		height: 100px;
+	}
+	.flex >div{
+		flex-grow:1;
+	}
+	.fix-width200{
+		width: 200px;
+		background: #f00;
+		margin: 0 auto;
+	}
+</style>
+</html>

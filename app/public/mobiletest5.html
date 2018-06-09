@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>固定宽 用px</title>
+<!-- <meta name="viewport" content="width=640"> -->
+<!-- <meta name=viewport content="width=640,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0"> -->
+<!-- <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"> -->
+<!-- <meta name="viewport" content="width=640,initial-scale=1,user-scalable=0"> -->
+ <!--  <meta name="viewport" content="width=640,initial-scale=1,maximum-scale=2,minimum-scale=0.5,user-scalable=no"> -->
+ <!-- <meta name="viewport" content="width=640,user-scalable=no"> -->
+  <script>
+  setViewport(640)
+function setViewport(uiWidth) {
+	if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+		scal=window.screen.width/uiWidth;
+		document.write('<meta name="viewport" content="width='+uiWidth+',initial-scale='+scal+', user-scalable=no">');
+
+	}else{
+		document.write('<meta name="viewport" content="width=640,user-scalable=no">');
+	}
+	
+}
+</script>
+</head>
+<body style="background:#efefef;">
+	
+	<div class="fix-width600">
+		.fix-width600{
+		width: 600px;
+		background: #ccc;
+		height: 400px;
+		margin: 0 auto;
+		font-size: 24px;
+	}
+	</div>
+	
+</body>
+
+<style type="text/css" media="screen">
+html{
+
+}
+	html,body,div{
+		padding: 0;
+		margin:0;
+	}
+	div{
+		margin-bottom: 10px;
+	}
+
+	.fix-width600{
+		width: 600px;
+		background: #ccc;
+		height: 400px;
+		margin: 0 auto;
+		font-size: 24px;
+	}
+</style>
+</html>

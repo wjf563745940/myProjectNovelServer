@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<button type="button" id="show">pdf</button>
+	<div class="viewer-con" id="viewerCon">
+		<div class="tool">
+			<button type="button" id="back">返回</button>
+			<span>借款协议</span>
+			<button type="button" id="back">导出</button>
+		</div>
+		<iframe src="#" id="pdf"></iframe>
+	</div>
+</body>
+<style type="text/css" media="screen">
+html,body{
+	width: 100%;
+	height: 100%;
+}
+	.viewer-con{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		display: none;
+		top: 0;
+		left:0;
+
+	}
+	.viewer-con .tool{
+		position: absolute;
+		top: 0;
+		left:0;
+		z-index: 9;
+		width: 100%;
+		height: 34px;
+		background: #fff;
+	}
+	.viewer-con .tool button{
+		border:1px solid #f00;
+		background: inherit;
+		color: #f00;
+	}
+	.viewer-con iframe{
+		width: 100%;
+		height:100%;
+	}
+</style>
+<script type="text/javascript">
+var url="http://192.168.1.100:7001/public/custViewer/web/viewer.html";
+	var btn1=document.querySelector("#show")
+		var back=document.querySelector("#back");
+		var viewerCon=document.querySelector("#viewerCon");
+		var pdf=document.querySelector("#pdf");
+		btn1.onclick=function(){
+			//console.log(url)
+			url=url+"?file=/public/1.pdf"
+			pdf.setAttribute("src",url)
+			viewerCon.style.display="block";
+			launchFullScreen();
+		}
+		back.addEventListener("click", function(){
+			viewerCon.style.display="none";
+			exitFullscreen();
+		})
+		
+		function launchFullScreen(element) {
+			var element=element?element:document.documentElement;
+if (element.requestFullscreen) {
+element.requestFullscreen();
+} else if (element.mozRequestFullScreen) {
+element.mozRequestFullScreen();
+} else if (element.webkitRequestFullscreen) {
+element.webkitRequestFullscreen();
+} else if (element.msRequestFullscreen) {
+element.msRequestFullscreen();
+}
+}
+
+
+
+function exitFullscreen() {
+if (document.exitFullscreen) {
+document.exitFullscreen();
+} else if (document.mozCancelFullScreen) {
+document.mozCancelFullScreen();
+} else if (document.webkitExitFullscreen) {
+document.webkitExitFullscreen();
+}
+}
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<!-- <meta name="viewport" content="width=640"> -->
+<!-- <meta name=viewport content="width=640,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0"> -->
+<!-- <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"> -->
+<!-- <meta name="viewport" content="width=640,initial-scale=1,user-scalable=0"> -->
+ <meta name="viewport"  content="width=320,initial-scale=1,user-scalable=0"> 
+</head>
+<body style="background:#efefef;">
+	<div style="display:none;">参考1:<a href="https://www.w3cplus.com/css/viewports.html">https://www.w3cplus.com/css/viewports.html</a>
+		<a href="https://github.com/amfe/article/issues/17">https://github.com/amfe/article/issues/17</a>
+		<a href="https://github.com/riskers/blog/issues/18">https://github.com/riskers/blog/issues/18</a>
+		<a href="https://github.com/riskers/blog/issues/17">https://github.com/riskers/blog/issues/17</a>
+		https://www.w3cplus.com/css/fix-1px-for-retina.html
+	</div>
+	<div>手机型号 vivio x7  1920*1080（可以理解成物理像素，实际我们看到的都是以css像素为准  缩放比例100% 1px就是1屏幕像素） 5.2英寸</div>
+	<div>ppi=<span >x^2+y^ 开跟 除以 英寸   = 423.6359942465958   每英寸有423个像素点  每英寸300个像素点肉眼已看不出网格</span></div>
+	<div>screenwidth= 1080(这里是我写死的自己手机的分辨率)</div>
+	<div>wind.screen.width=<span id="screenW"></span></div>
+	<div>html尺寸 offset Width=<span id="offsetW"></span></div>
+<!-- 	<div>浏览器尺寸包含了滚动条 innner Width=<span id="innnerW"></span></div> -->
+	<div>可以衡量viewport document.documentElement.clientWidth=<span id="clientWidth"></span></div>
+	<div>dpr=<span id="dpr"></span></div>
+	<div>dpr = 屏幕横向设备像素 / 理想视口的宽</div>
+	
+	<div>在缩放程度为100% css像素 =分辨率/dpr= <span>360*640(试想一下本来在桌面浏览器viewport=1920的市窗下100%width突然放到360的width下有多尴尬 看上去就好像被缩小来3-4倍)</span></div>
+		<div style=" background:#ccc;"> width没设</div>
+		<div style="width:320px; background:#ccc;"> width=320px</div>
+	<div style="width:360px; background:#ccc;"> width=360px</div>
+	<div style="width:1080px; background:#ccc;"> width=1080px</div>
+	<div style="width:100vw; background:#ccc;"> width=100vw</div>
+	<div style="width:980px; background:#ccc;"> width=980</div>
+	<div id="remw" style="width:9.8rem; background:#ccc;"> width=9.8rem (html font-size 100px )</div>
+	<div style="width:320pt; background:#ccc;"> width=320pt</div>
+	<div id="w100" style="width:100%;background:#ccc;">width=100%<span id="w100v"></span></div>
+</body>
+<script>
+document.getElementById("screenW").innerHTML=window.screen.width;
+var htmlWidth=document.documentElement.offsetWidth;
+var allrem=htmlWidth/100;
+document.getElementById("offsetW").innerHTML=htmlWidth;
+
+document.getElementById("remw").innerHTML="width="+allrem+"rem (html font-size 100px  htmlWidth "+htmlWidth+"  所以满width="+allrem+"rem  )";
+document.getElementById("remw").style.width=allrem+"rem";
+//document.getElementById("innnerW").innerHTML=window.innerWidth;
+document.getElementById("dpr").innerHTML=window.devicePixelRatio;
+document.getElementById("clientWidth").innerHTML=document.documentElement.clientWidth;
+document.getElementById("w100v").innerHTML=document.getElementById("w100").offsetWidth;
+</script>
+<style type="text/css" media="screen">
+html{
+	/*width: 320px;*/
+	font-size:100px;
+}
+	html,body,div{
+		padding: 0;
+		margin:0;
+	}
+	body{
+		font-size: 16px;
+	}
+	div{
+		margin-bottom: 10px;
+	}
+</style>
+</html>

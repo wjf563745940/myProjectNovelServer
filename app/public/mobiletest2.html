@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<!-- <meta name="viewport" content="width=640"> -->
+<!-- <meta name=viewport content="width=640,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0"> -->
+<!-- <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"> -->
+<!-- <meta name="viewport" content="width=640,initial-scale=1,user-scalable=0"> -->
+  <meta name="viewport"  content="width=device-width,initial-scale=0.5,user-scalable=0"> 
+</head>
+<body style="background:#efefef;">
+	<div style="width:960px;margin:0 auto;"><p>测试文字测试文字测试文字</p></div>
+	<div style="width:160px;background:#aaa;">width:160px;</div>
+	<div style="width:320px;background:#aaa;">width:320px;</div>
+	<div style="width:720px;background:#aaa;">width:720px;</div>
+	<div style="width:1080px;background:#aaa;">width:1080px;</div>
+	<div id="remw" style="width:9.8rem; background:#ccc;"> width=9.8rem (html font-size 100px )</div>
+		<div>html尺寸 offsetW=<span id="offsetW"></span></div>
+		<div>可以衡量viewport document.documentElement.clientWidth=<span id="clientWidth"></span></div>
+</body>
+<script>
+
+document.getElementById("offsetW").innerHTML=document.documentElement.offsetWidth;
+document.getElementById("innnerW").innerHTML=window.innerWidth;
+document.getElementById("clientWidth").innerHTML=document.documentElement.clientWidth;
+document.getElementById("remw").innerHTML="width="+allrem+"rem (html font-size 100px  htmlWidth "+htmlWidth+"  所以满width="+allrem+"rem  )";
+document.getElementById("remw").style.width=allrem+"rem";
+</script>
+<style type="text/css" media="screen">
+html{
+	
+	font-size:100px;
+}
+body{
+	font-size: 16px;
+}
+	html,body,div{
+		padding: 0;
+		margin:0;
+	}
+	div{
+		margin-bottom: 10px;
+	}
+</style>
+</html>
